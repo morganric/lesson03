@@ -9,7 +9,10 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 
 
 
-
+months.each do |month|
+	puts "#{month}" unless month.include?("J")
+	
+end
 
 
 
@@ -31,13 +34,24 @@ puts "\n--------------------" # line to distinguish exercise output
 # there are different ways you could write this game. 
 # start wondering why one might be better than another.
 
+
 loop do
-	random_month = months.sample
+	random_month = months[rand(months.length)]
 	puts "What number is #{random_month}?"
 
 	input = $stdin.gets.chomp
-
-	break
+	
+	if input == "quit"
+		puts "Bye!"
+		break
+	end
+	
+	# turn my input into an integer
+	input = input.to_i
+	unless months[input - 1] == random_month
+		puts "Game Over!"
+		break
+	end
 end
 
 

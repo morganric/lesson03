@@ -8,8 +8,13 @@ flintstones = ["Fred", "Wilma", "Barney", "Betty", "Dino"]
 # Use the months array to test your method and that it returns "January"
 # or the flintstones arrary to see if it returns "Fred"
 
+def first_item_array (array)
+	return array[0]
+end
 
+puts first_item_array(flintstones)
 
+puts first_item_array(months)
 
 
 
@@ -21,7 +26,19 @@ puts "\n--------------------" # line to distinguish exercise output
 # Remember to change your input to an integer
 
 
+def ask_user_number (array)
 
+	puts "Which number do you want?"
+	
+	input = $stdin.gets.chomp
+	# Turn to integer
+	input = input.to_i
+	# Return position in array
+	return array[input]
+	
+end
+	
+puts ask_user_number(months)	
 
 
 
@@ -33,6 +50,13 @@ puts "\n--------------------" # line to distinguish exercise output
 # in a single line. 
 
 
+def any_number (array, *indexes)
+	
+	indexes.each do |index|
+		puts array[index]
+	end
+	
+end
 
-
+any_number(months, 4, 7, 8, 9, 10)
 
